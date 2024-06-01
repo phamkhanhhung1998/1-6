@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lời chúc hạnh phúc</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f8ff;
+            margin: 0;
+            text-align: center;
+        }
+        #container {
+            max-width: 500px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 18px;
+            border: 2px solid #4caf50;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            color: #ffffff;
+            background-color: #4caf50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #message {
+            display: none;
+            font-size: 20px;
+            color: #4caf50;
+        }
+        #image {
+            display: none;
+            margin-top: 20px;
+            max-width: 100%;
+            height: auto;
+        }
+        #audioPlayer {
+            display: none;
+            width: 100%;
+            margin-top: 20px;
+        }
+        #errorMessage {
+            color: #f44336; /* Màu đỏ */
+            font-size: 16px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1 id="header">Nhập từ mà em hay dùng nhất để mở khóa</h1>
+        <input type="text" id="userInput" placeholder="Cái từ mà em dùng nhiều nhất trong mess ấy">
+        <button onclick="showMessage()">Gửi</button>
+        <div id="errorMessage"></div>
+        <div id="message">
+            <p>Hmm tặng e 1 cái chìa khóa mở cửa trái tim anh nha. Chúc em bé yêu của tui luôn xinh đẹp và luôn rạng ngời như ngày đầu em gặp anh nhá. Em bé ấy nhớ yêu a nhiều vào nha 😘🫶🫰. Và cuối cùng em có thấy bài này quen quen khumm </p>
+            <img id="image" src="lovekey.jpg" alt="Hình ảnh em bé hạnh phúc">
+        </div>
+        <audio id="audioPlayer" controls>
+            <source src="bt_binh_thng.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <script>
+        var audio = document.getElementById('audioPlayer');
+
+        function showMessage() {
+            var input = document.getElementById('userInput').value.toLowerCase();
+            if(input === 'nỏ') {
+                document.getElementById('header').style.display = 'none';
+                document.getElementById('userInput').style.display = 'none';
+                document.querySelector('button').style.display = 'none';
+                document.getElementById('message').style.display = 'block';
+                document.getElementById('image').style.display = 'block';
+                document.getElementById('audioPlayer').style.display = 'block';
+                document.getElementById('errorMessage').textContent = ''; // Ẩn thông điệp lỗi
+                audio.play();
+            } else {
+                document.getElementById('errorMessage').textContent = 'Nghĩ kỹ lại xem nào hihi e còn bảo a bị quen với từ đó rồi đấy'; // Hiển thị thông điệp lỗi
+            }
+        }
+    </script>
+</body>
+</html>
